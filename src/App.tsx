@@ -7,6 +7,7 @@ import PaymentOption from './pages/registration/PaymentOption';
 import OtpVerificationPage from './pages/registration/OtpVerificationPage';
 import PaymentCompletion from './pages/registration/PaymentCompletion';
 import MultiStepForm from './pages/registration/MultiStepForm';
+import SubmissionConfirmation from './pages/registration/SubmissionConfirmation';
 // Import other pages as you build them
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/registration/otp-verification" element={<OtpVerificationPage/>}/>
             <Route path="/registration/payment-completed" element={<PaymentCompletion />}/>
             <Route path="/registration/multistep-form" element={<MultiStepForm/>}/>
+            <Route path="/registration/submission-confirmation" element={<SubmissionConfirmation/>} />
             {/* TODO: Add other routes here */}
           </Routes>
         </ContentWrapper>

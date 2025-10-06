@@ -5,41 +5,41 @@ import { useRegistrationData } from '../../hooks/useRegistrationData';
 import { verifyOtp, resendOtp } from '../../services/otpService';
 
 const OtpVerificationPage = () => {
-    const navigate = useNavigate();
-    const { registrationKey  } = useRegistrationData();
+  const navigate = useNavigate();
+  const { registrationKey  } = useRegistrationData();
 
-    // State for OTP input
-    const [otp, setOtp] = useState<string[]>(new Array(6).fill(''));
-    const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  // State for OTP input
+  const [otp, setOtp] = useState<string[]>(new Array(6).fill(''));
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-    // State for timer and messages
-    const [timer,setTimer] = useState(120); // 2 minutes in seconds
-    const [isResendActive, setIsResendActive] = useState(false);
-    const [message, setMessage] = useState('');
+  // State for timer and messages
+  const [timer,setTimer] = useState(120); // 2 minutes in seconds
+  const [isResendActive, setIsResendActive] = useState(false);
+  const [message, setMessage] = useState('');
 
-    // TanStack Query mutations for OTP
-    const { mutate: verifyMutate, isPending: isVerifying } = useMutation({
-        mutationFn: (otpCode: string) => verifyOtp(registrationKey  as string, otpCode),
-        onSuccess: () => {
-            setMessage('OTP verified successfully!');
-            // Navigate to the next step in registration
-            navigate('/registration/payment-completed'); 
-        },
-        onError: (error) => {
-            setMessage(error.message);
-        },
+  // TanStack Query mutations for OTP
+  const { mutate: verifyMutate, isPending: isVerifying } = useMutation({
+      mutationFn: (otpCode: string) => verifyOtp(registrationKey  as string, otpCode),
+      onSuccess: () => {
+          setMessage('OTP verified successfully!');
+          // Navigate to the next step in registration
+          navigate('/registration/payment-completed'); 
+      },
+      onError: (error) => {
+          setMessage(error.message);
+      },
     });
 
     const { mutate: resendMutate, isPending: isResending } = useMutation({
-        mutationFn: () => resendOtp(registrationKey  as string),
-        onSuccess: () => {
-            setTimer(120); // Reset timer
-            setIsResendActive(false);
-            setMessage('New OTP sent!');
-        },
-        onError: (error) => {
-            setMessage(error.message);
-        },
+      mutationFn: () => resendOtp(registrationKey  as string),
+      onSuccess: () => {
+        setTimer(120); // Reset timer
+        setIsResendActive(false);
+        setMessage('New OTP sent!');
+      },
+      onError: (error) => {
+        setMessage(error.message);
+      },
     });
 
     // Effect for timer logic

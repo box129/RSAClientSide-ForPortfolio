@@ -11,6 +11,8 @@ interface FormNavigationProps {
     isFormValid: boolean; 
     // Control whether the Previous button is visible (e.g., hide on Step 1)
     showPreviousButton: boolean;
+    // Flag to indicate this is the final step
+    isFinalStep?: boolean; 
 }
 
 const FormNavigation = ({
@@ -19,7 +21,13 @@ const FormNavigation = ({
     isSubmitting,
     isFormValid,
     showPreviousButton,
+    isFinalStep = false, // Default to false
 }: FormNavigationProps) => {
+
+    // Determine the text for the final button
+    const finalButtonText = isFinalStep 
+        ? (isSubmitting ? 'Submitting...' : 'Submit') 
+        : (isSubmitting ? 'Processing...' : 'Proceed');
 
     return (
         <div className="twoStep">
@@ -39,7 +47,7 @@ const FormNavigation = ({
             {/* Placeholder to keep the 'Proceed' group aligned right when Previous is hidden */}
             {!showPreviousButton && <div className="w-auto"></div>}
 
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-10 items-center">
                 
                 {/* Save and Continue Later Button */}
                 <button
@@ -51,14 +59,14 @@ const FormNavigation = ({
                     Save and Continue Later
                 </button>
                 
-                {/* Proceed Button */}
+                {/* Submit/Proceed Button */}
                 <button
-                    type="submit"
+                    type="submit" // CRITICAL: This type makes it trigger the form's onSubmit
                     className=""
                     // Disable if submitting OR if the current form data is NOT valid
                     disabled={isSubmitting || !isFormValid}
                 >
-                    {isSubmitting ? 'Processing...' : 'Proceed'}
+                    {finalButtonText} {/* Use the new dynamic text */}
                 </button>
             </div>
         </div>

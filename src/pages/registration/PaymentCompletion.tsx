@@ -10,15 +10,15 @@ const PaymentCompletion = () => {
         const timer = setTimeout(() => {
             // Navigate to the next step (e.g., the multistep form) after 10 seconds
             navigate('/registration/multistep-form');
-        }, 10000); // 10000 milliseconds = 10 seconds
+        }, 5000); // 10000 milliseconds = 10 seconds
 
         // Cleanup the timer if the component unmounts
         return () => clearTimeout(timer);
     }, [navigate]);
 
     return (
-        <div className="min-h-screen">
-            <div className="flex justify-center items-center rounded-lg h-[100vh]">
+        <div className="min-h-screen bg-gray-50">
+            <div className="bg-white border border-gray-200 flex justify-center items-center rounded-lg h-[100vh]">
                 <div className="border size-[69%] flex items-center justify-center">
                     <div className="flex flex-col size-[80%] pb-10">
                         <DotLottieReact

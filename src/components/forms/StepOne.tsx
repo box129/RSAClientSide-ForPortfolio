@@ -56,11 +56,11 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
         <div className="bg-white">
             <h3 className="">Personal Details</h3>
             <form onSubmit={handleSubmit}>
-                <div className="">
-                    <div className="form-entry">
+                <div className="p-6">
+                    <div className="threeStep-inputs">
                     
                         {/* 1. Place of Birth (Input) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="placeOfBirth">Place of Birth</label>
                             <input
                                 type="text"
@@ -74,7 +74,7 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                         </div>
                     
                         {/* 2. Religion (Select) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="religion">Religion</label>
                             <select
                                 name="religion"
@@ -92,7 +92,7 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             {/* Custom arrow if needed */}
                         </div>
                         {/* 3. Gender (Select) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="gender">Gender</label>
                             <select
                                 name="gender"
@@ -108,7 +108,7 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             </select>
                         </div>
                         {/* 4. Home Address (Input) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="homeAddress">Home Address</label>
                             <input
                                 type="text"
@@ -121,7 +121,7 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             />
                         </div>
                         {/* 5. City (Select) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="city">City</label>
                             <select
                                 name="city"
@@ -137,7 +137,7 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             </select>
                         </div>
                         {/* 6. State (Select) */}
-                        <div className="input-group">
+                        <div className="">
                             <label htmlFor="state">State</label>
                             <select
                                 name="state"
@@ -153,8 +153,8 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             </select>
                         </div>
                         {/* 7. Upload Passport Photograph (File Input) */}
-                        <div className="input-group mt-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Upload your passport photograph</label>
+                        <div className="">
+                            <label className="">Upload your passport photograph</label>
                             <FileInput
                                 name="passportPhoto"
                                 onChange={(file) => setPersonalDetails(prev => ({ ...prev, passportPhoto: file }))}
@@ -162,8 +162,8 @@ const StepOne = ({ onSubmit, onPrevious, isSubmitting }: StepOneProps) => {
                             />
                         </div>
                         {/* 8. Upload Signature (File Input) */}
-                        <div className="input-group mt-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Upload your signature</label>
+                        <div className="">
+                            <label className="">Upload your signature</label>
                             <FileInput
                                 name="signature"
                                 onChange={(file) => setPersonalDetails(prev => ({ ...prev, signature: file }))}
