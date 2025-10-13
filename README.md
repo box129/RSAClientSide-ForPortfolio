@@ -1,5 +1,5 @@
 # React + TypeScript + Vite
-![Deploy status](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/deploy.yml/badge.svg)
+[![Deploy Vite app to GitHub Pages](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/main.yml/badge.svg)](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/main.yml)
 
 
 
