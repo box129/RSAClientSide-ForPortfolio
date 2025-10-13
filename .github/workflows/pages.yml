@@ -30,6 +30,8 @@ jobs:
         run: |
           npm ci
           npm run build
+        env:
+          VITE_USE_HASH_ROUTER: true   # 👈 added here
 
       - name: Upload artifact 📦
         uses: actions/upload-pages-artifact@v3
