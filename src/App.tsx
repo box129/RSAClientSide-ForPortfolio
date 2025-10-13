@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import ContentWrapper from './components/layout/ContentWrapper';
 import StartPage from './pages/registration/StartPage';
@@ -12,7 +13,7 @@ import SubmissionConfirmation from './pages/registration/SubmissionConfirmation'
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <RegistrationProvider>
         <Header />
          {/* All content inside here will be pushed down by the header's height */}
@@ -28,7 +29,7 @@ function App() {
           </Routes>
         </ContentWrapper>
       </RegistrationProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
