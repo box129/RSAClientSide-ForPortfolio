@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter, BrowserRouter } from 'react-router-dom';
 import Header from './components/layout/Header';
 import ContentWrapper from './components/layout/ContentWrapper';
 import StartPage from './pages/registration/StartPage';
@@ -11,9 +11,12 @@ import MultiStepForm from './pages/registration/MultiStepForm';
 import SubmissionConfirmation from './pages/registration/SubmissionConfirmation';
 // Import other pages as you build them
 
+// Check the environment variable set during the build/runtime
+const Router = import.meta.env.VITE_ROUTER_MODE === 'hash' ? HashRouter : BrowserRouter;
+
 function App() {
   return (
-    <HashRouter>
+    <Router>
       <RegistrationProvider>
         <Header />
          {/* All content inside here will be pushed down by the header's height */}
@@ -29,7 +32,7 @@ function App() {
           </Routes>
         </ContentWrapper>
       </RegistrationProvider>
-    </HashRouter>
+    </Router>
   );
 }
 

@@ -1,17 +1,19 @@
-import api from './api';
+// import api from './api';
 import type { StartRegistrationForm } from '../types/forms';
 import type { StartRegistrationResponse } from '../types/api';
 import type { RegistrationFormData, StepData } from '../types/forms';
 // This is the function that will be used by TanStack Query's `useMutation` hook
-export const startRegistration = async (formData: StartRegistrationForm): Promise<StartRegistrationResponse> => {
+export const startRegistration = (formData: StartRegistrationForm): Promise<StartRegistrationResponse> => {
   try {
-    const response = await api.post<StartRegistrationResponse>('/registration/Start', formData);
-    return response.data;
+    const response = 'mock-registrationkey-1234';
+    return Promise.resolve({ registrationKey: response});
   } catch (error) {
     // It's good practice to log or handle the error here
     console.error('Error starting registration:', error);
     // Re-throw the error so TanStack Query's `onError` callback can catch it
     throw error;
+  } finally {
+    console.log('startRegistration function executed with data:', formData);
   }
 };
 

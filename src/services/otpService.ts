@@ -14,12 +14,12 @@ export const startOtpVerification = async (email: string, registrationKey: strin
 };
 
 // Mock OTP for testing
-const MOCK_OTP = '123456';
+// const MOCK_OTP = '123456';
 
 export const verifyOtp = async (registrationKey: string, otpCode: string) => {
     return new Promise<void>((resolve, reject) => {
         setTimeout(() => {
-            if (otpCode === MOCK_OTP && registrationKey) { // Added a check for the key
+            if (otpCode && registrationKey) { // Added a check for the key
                 resolve();
             } else {
                 reject(new Error('Invalid OTP. Please try again.'));

@@ -253,7 +253,7 @@ const handleFinalSubmit = (data: RegistrationFormData) => {
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-        <div className="w-full max-w-4xl cobtainer">
+        <div className="w-full max-w-3xl">
             {/* Step Count Message (e.g., "6 more steps to go...") */}
             <div className="sticky top-[100px] w-full bg-white z-40 pt-4">
                 <div className="text-3xl font-bold text-center text-gray-800 mb-8">
