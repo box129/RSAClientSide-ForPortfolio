@@ -1,6 +1,5 @@
 # React + TypeScript + Vite
-[![Deploy Vite app to GitHub Pages](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/main.yml/badge.svg)](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/main.yml)
-
+[![Deploy Vite app to GitHub Pages](https://github.com/box129/RSAClientSide-ForPortfolio/actions/workflows/main.yml/badge.svg)](https://box129.github.io/RSAClientSide-ForPortfolio/)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
